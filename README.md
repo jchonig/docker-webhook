@@ -1,4 +1,4 @@
-# docker-g10k
+# docker-webhook
 A container running [webhook](https://github.com/adnanh/webhook) based
 on [linuxserver.io](https://www.linuxserver.io/) s6 overlay based
 container.
@@ -10,7 +10,7 @@ build puppet environments.
 
 ## docker
 
-```
+```bash
 docker create \
   --name=webook \
   -e TZ=Europe/London \
@@ -23,7 +23,7 @@ docker create \
 
 Compatible with docker-compose v2 schemas.
 
-```
+```yaml
 ---
 version: "3"
 services:
@@ -32,7 +32,7 @@ services:
     container_name: webhook
     environment:
       TZ: Europe/London
-	  HOOK_ARGS: "-hooks /config/hooks.json -hotreload"
+      HOOK_ARGS: "-hooks /config/hooks.json -hotreload"
     volumes:
       - </path/to/appdata/config>:/config
     expose:
@@ -71,7 +71,7 @@ services:
     the `config` directory. This file is sourced by the shell.
   * To use a git webhook:
     * Set `HOOK_SECRET` to the shared secret.
-	* Set `HOOK_COMMAND` to the command to run when a webhook is received.
+    * Set `HOOK_COMMAND` to the command to run when a webhook is received.
     * Set `HOOK_ARGS` to `-template -hooks /etc/webhook/githook.yaml.tmpl`.
-	* The webhook will run in the /config directory.  If other files
+    * The webhook will run in the /config directory.  If other files
       are needed (such as a `.ssh` directory) put it there.

@@ -23,6 +23,8 @@
     name: ref
   - source: payload
     name: repository.ssh_url
+  - source: header
+    name: X-Gogs-Event
   trigger-rule:
     and:
       - match:

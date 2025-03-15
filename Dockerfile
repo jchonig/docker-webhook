@@ -2,7 +2,7 @@ FROM golang:alpine AS build
 
 ENV \
         CGO_ENABLED=0 \
-	WEBHOOK_VERSION=2.8.1
+	WEBHOOK_VERSION=2.8.2
 
 WORKDIR /src/
 RUN \

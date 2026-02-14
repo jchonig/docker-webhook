@@ -2,7 +2,7 @@ FROM golang:alpine AS build
 
 ENV \
         CGO_ENABLED=0 \
-	WEBHOOK_VERSION=2.8.2
+	WEBHOOK_VERSION=2.8.3
 
 WORKDIR /src/
 RUN \
@@ -15,7 +15,7 @@ RUN \
         git checkout ${WEBHOOK_VERSION} && \
         go build -o /usr/local/bin/webhook
 
-FROM lsiobase/alpine:3.21
+FROM lsiobase/alpine:3.22
 
 ENV \
         HOOK_SECRET= \

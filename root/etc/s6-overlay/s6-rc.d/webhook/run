@@ -1,5 +1,11 @@
 #!/usr/bin/with-contenv bash
 
-# Drop privileges and run webook
+# Drop privileges and run webhook
 
-s6-setuidgid abc /usr/local/bin/webhook ${HOOK_ARGS}
+# Bind to :: (dual-stack) if IPv6 is available and -ip not already set
+IPV6_ARGS=""
+if [ -f /proc/net/if_inet6 ] && ! echo "${HOOK_ARGS}" | grep -q -- '-ip'; then
+    IPV6_ARGS="-ip [::]"
+fi
+
+s6-setuidgid abc /usr/local/bin/webhook ${IPV6_ARGS} ${HOOK_ARGS}

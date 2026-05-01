@@ -3,6 +3,8 @@ A container running [webhook](https://github.com/adnanh/webhook) based
 on [linuxserver.io](https://www.linuxserver.io/) s6 overlay based
 container.
 
+Image hosted at: `ghcr.io/ghcr.io/jchonig/webhook`
+
 The purpose is to catch webhook posts from a git server and run g10 to
 build puppet environments.
 
@@ -16,7 +18,7 @@ docker create \
   -e TZ=Europe/London \
   --expose 9000 \
   --restart unless-stopped \
-  jchonig/webhook
+  ghcr.io/jchonig/webhook
 ```
 
 ### docker-compose
@@ -28,7 +30,7 @@ Compatible with docker-compose v2 schemas.
 version: "3"
 services:
   monit:
-    image: jchonig/webhook
+    image: ghcr.io/jchonig/webhook
     container_name: webhook
     environment:
       TZ: Europe/London

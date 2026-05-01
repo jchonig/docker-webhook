@@ -3,7 +3,7 @@ A container running [webhook](https://github.com/adnanh/webhook) based
 on [linuxserver.io](https://www.linuxserver.io/) s6 overlay based
 container.
 
-Image hosted at: `ghcr.io/ghcr.io/jchonig/webhook`
+Image hosted at: `ghcr.io/jchonig/webhook`
 
 The purpose is to catch webhook posts from a git server and run g10 to
 build puppet environments.

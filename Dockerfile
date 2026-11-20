@@ -15,7 +15,7 @@ RUN \
         git checkout ${WEBHOOK_VERSION} && \
         go build -o /usr/local/bin/webhook
 
-FROM lsiobase/alpine:3.22
+FROM lsiobase/alpine:3.24
 
 ENV \
         HOOK_SECRET= \
